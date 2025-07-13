@@ -41,9 +41,24 @@ body {
 
 .logo {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img-side {
+    height: 48px;
+    width: auto;
+    max-width: 48px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: #fff;
+}
+
+.logo-text {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.2rem;
 }
 
 .logo h2 {
@@ -743,6 +758,16 @@ body {
     }
     .logo {
         align-items: center;
+    }
+    .logo-img-side {
+        height: 36px;
+        max-width: 36px;
+    }
+    .logo-text {
+        align-items: center;
+    }
+    .logo {
+        gap: 0.5rem;
     }
 }
 
