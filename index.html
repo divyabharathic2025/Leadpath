@@ -1,122 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LeadPath Academy</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #fff; color: #000; }
-    h1, h2, h3 { color: #0a3d62; }
-    .section { margin-bottom: 30px; }
-    ul { margin-top: 10px; }
-    li { margin-bottom: 5px; }
-    .testimonial { margin-bottom: 15px; font-style: italic; }
-    .bold { font-weight: bold; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadPath Academy - Speak English Clearly, Confidently & Without Fear</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .course-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .course-for {
+            background: #e3f2fd;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1976d2;
+            margin-bottom: 1rem;
+        }
+
+        .course-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-features li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .course-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .course-outcome {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #4caf50;
+            margin-top: 1rem;
+        }
+
+        .course-outcome strong {
+            color: #2e7d32;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        /* How to Join */
+        .how-to-join {
+            padding: 80px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .step {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Other Programs */
+        .other-programs {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .program-card ul {
+            list-style: none;
+        }
+
+        .program-card li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .program-card li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Founder Section */
+        .founder {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .founder-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .founder-name {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-  <img width="100px" src="Logo.jpeg" alt=""><h1 style="text-align:center">LeadPath Academy</h1>
-  <p style="text-align:center">Speak English Clearly, Confidently & Without Fear</p>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">LeadPath Academy</a>
+            <ul class="nav-links">
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="section">
-    <h2>Our Courses</h2>
-    <h3>Beginner Level – Speak Without Fear</h3>
-    <p class="bold">For:</p>
-    <p>First-time learners, homemakers, students</p>
-    <ul>
-      <li>Basic grammar & sentence formation</li>
-      <li>Everyday vocabulary</li>
-      <li>Self-introduction & greetings</li>
-      <li>Simple conversations</li>
-    </ul>
-    <p><span class="bold">Outcome:</span> Speak basic English comfortably in daily life.</p>
+    <section class="hero">
+        <div class="container">
+            <h1>LeadPath Academy</h1>
+            <p>Speak English Clearly, Confidently & Without Fear</p>
+            <a href="#courses" class="cta-button">Start Your Journey</a>
+        </div>
+    </section>
 
-    <h3>Intermediate Level – Speak Fluently</h3>
-    <p class="bold">For:</p>
-    <p>Learners who understand English but hesitate to speak</p>
-    <ul>
-      <li>Stronger sentence structure</li>
-      <li>Grammar correction</li>
-      <li>Speaking in real-life situations (work, travel, etc.)</li>
-      <li>Group speaking activities</li>
-    </ul>
-    <p><span class="bold">Outcome:</span> Gain fluency and confidence in familiar conversations.</p>
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card fade-in">
+                    <h3>Beginner Level – Speak Without Fear</h3>
+                    <div class="course-for">For: First-time learners, homemakers, students</div>
+                    <ul class="course-features">
+                        <li>Basic grammar & sentence formation</li>
+                        <li>Everyday vocabulary</li>
+                        <li>Self-introduction & greetings</li>
+                        <li>Simple conversations</li>
+                    </ul>
+                    <div class="course-outcome">
+                        <strong>Outcome:</strong> Speak basic English comfortably in daily life.
+                    </div>
+                </div>
 
-    <h3>Advanced Level – Speak Like a Leader</h3>
-    <p class="bold">For:</p>
-    <p>Professionals, job seekers, advanced learners</p>
-    <ul>
-      <li>Public speaking techniques</li>
-      <li>Interview & presentation skills</li>
-      <li>Group discussions and debates</li>
-      <li>Accent and clarity improvement</li>
-    </ul>
-    <p><span class="bold">Outcome:</span> Speak confidently in professional and public settings.</p>
-  </div>
+                <div class="course-card fade-in">
+                    <h3>Intermediate Level – Speak Fluently</h3>
+                    <div class="course-for">For: Learners who understand English but hesitate to speak</div>
+                    <ul class="course-features">
+                        <li>Stronger sentence structure</li>
+                        <li>Grammar correction</li>
+                        <li>Speaking in real-life situations (work, travel, etc.)</li>
+                        <li>Group speaking activities</li>
+                    </ul>
+                    <div class="course-outcome">
+                        <strong>Outcome:</strong> Gain fluency and confidence in familiar conversations.
+                    </div>
+                </div>
 
-  <div class="section">
-    <h2>All Courses Include</h2>
-    <ul>
-      <li>✅ Daily speaking practice</li>
-      <li>✅ Worksheets & feedback</li>
-      <li>✅ Pocket-friendly fee</li>
-      <li>✅ Completion certificate</li>
-      <li>✅ Guidance by expert trainer</li>
-    </ul>
-  </div>
+                <div class="course-card fade-in">
+                    <h3>Advanced Level – Speak Like a Leader</h3>
+                    <div class="course-for">For: Professionals, job seekers, advanced learners</div>
+                    <ul class="course-features">
+                        <li>Public speaking techniques</li>
+                        <li>Interview & presentation skills</li>
+                        <li>Group discussions and debates</li>
+                        <li>Accent and clarity improvement</li>
+                    </ul>
+                    <div class="course-outcome">
+                        <strong>Outcome:</strong> Speak confidently in professional and public settings.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>What Our Students Say</h2>
-    <p class="testimonial">“A Life-Changing Experience!” – I was scared to even speak one sentence in English. After joining LeadPath, I can now confidently talk to my team and even attend client meetings! – Sangeetha, IT Professional</p>
-    <p class="testimonial">“Best Spoken English Class Ever!” – The trainer made everything simple and practical. Within a week, I started forming full sentences. I got placed in a job because of this course. – Ramesh, B.Com Graduate</p>
-    <p class="testimonial">“Confidence Booster!” – Earlier, I used to translate from Tamil in my head. Now, I speak directly in English without fear. Daily speaking practice helped me the most. – Revathi, Homemaker</p>
-    <p class="testimonial">“Finally speak English with ease.” – After trying many YouTube videos, this is the first class that actually made me speak. I loved the trainer’s energy and motivation. – Manoj, Final Year Student</p>
-  </div>
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title fade-in">All Courses Include</h2>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🗣️</div>
+                    <h3>Daily Speaking Practice</h3>
+                    <p>Regular practice sessions to build confidence</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">📝</div>
+                    <h3>Worksheets & Feedback</h3>
+                    <p>Structured learning materials and personalized feedback</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">💰</div>
+                    <h3>Pocket-friendly Fee</h3>
+                    <p>Affordable pricing for quality education</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Completion Certificate</h3>
+                    <p>Recognition for your achievement</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Expert Trainer Guidance</h3>
+                    <p>Learn from experienced professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>How to Join</h2>
-    <p>Select Your Level: Beginner | Intermediate | Advanced</p>
-    <p>📲 Message us on WhatsApp: <strong>+91 63692 44479</strong></p>
-    <p>We’ll share course info, timings, and fee structure.</p>
-    <p>Make your payment and secure your seat.</p>
-    <p class="bold">Start your journey — speak English from day one!</p>
-  </div>
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">What Our Students Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "A Life-Changing Experience! I was scared to even speak one sentence in English. After joining LeadPath, I can now confidently talk to my team and even attend client meetings!"
+                    </div>
+                    <div class="testimonial-author">– Sangeetha, IT Professional</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "Best Spoken English Class Ever! The trainer made everything simple and practical. Within a week, I started forming full sentences. I got placed in a job because of this course."
+                    </div>
+                    <div class="testimonial-author">– Ramesh, B.Com Graduate</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "Confidence Booster! Earlier, I used to translate from Tamil in my head. Now, I speak directly in English without fear. Daily speaking practice helped me the most."
+                    </div>
+                    <div class="testimonial-author">– Revathi, Homemaker</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "Finally speak English with ease. After trying many YouTube videos, this is the first class that actually made me speak. I loved the trainer's energy and motivation."
+                    </div>
+                    <div class="testimonial-author">– Manoj, Final Year Student</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>Other Programs</h2>
-    <h3>Corporate Training</h3>
-    <ul>
-      <li>Email Etiquette</li>
-      <li>Client Communication</li>
-      <li>Team Presentation Skills</li>
-    </ul>
-    <h3>School & College Programs</h3>
-    <ul>
-      <li>One-day or Weekly English Boosters</li>
-      <li>Personality Development Workshops</li>
-      <li>Group Discussion & Interview Skills</li>
-    </ul>
-    <h3>Workshops & Seminars</h3>
-    <ul>
-      <li>Public Speaking</li>
-      <li>Overcoming Stage Fear</li>
-      <li>Resume & Interview Mastery</li>
-    </ul>
-    <h3>IELTS Preparation (Coming Soon)</h3>
-    <ul>
-      <li>Grammar & Vocabulary</li>
-      <li>Speaking, Listening, Reading, Writing Practice</li>
-      <li>Mock Tests & Feedback</li>
-    </ul>
-  </div>
+    <section class="how-to-join">
+        <div class="container">
+            <h2 class="section-title fade-in">How to Join</h2>
+            <div class="steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Select Your Level</h3>
+                    <p>Choose from Beginner, Intermediate, or Advanced based on your current skills</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Contact Us</h3>
+                    <p>Message us on WhatsApp for course info, timings, and fee structure</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Make Payment</h3>
+                    <p>Complete your payment and secure your seat in the course</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Start Learning</h3>
+                    <p>Begin your journey — speak English from day one!</p>
+                </div>
+            </div>
+            <a href="https://wa.me/916369244479" class="whatsapp-button" target="_blank">
+                📲 WhatsApp: +91 63692 44479
+            </a>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>Meet the Founder</h2>
-    <p><strong>Divyabharathi</strong> is the founder of LeadPath Academy and an internationally certified soft skills trainer. She has empowered over 1000+ students to speak English with confidence, leading many to career success and personal growth.</p>
-    <p>Recognized by Hindustan Times as one of the Top 10 Women Influencers in 2023 and 2024, she brings passion, clarity, and proven methods to every learner.</p>
-    <p><strong>Her mission:</strong> To help people speak English clearly, confidently, and without fear.</p>
-  </div>
+    <section id="programs" class="other-programs">
+        <div class="container">
+            <h2 class="section-title fade-in">Other Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <h3>Corporate Training</h3>
+                    <ul>
+                        <li>Email Etiquette</li>
+                        <li>Client Communication</li>
+                        <li>Team Presentation Skills</li>
+                    </ul>
+                </div>
+                <div class="program-card fade-in">
+                    <h3>School & College Programs</h3>
+                    <ul>
+                        <li>One-day or Weekly English Boosters</li>
+                        <li>Personality Development Workshops</li>
+                        <li>Group Discussion & Interview Skills</li>
+                    </ul>
+                </div>
+                <div class="program-card fade-in">
+                    <h3>Workshops & Seminars</h3>
+                    <ul>
+                        <li>Public Speaking</li>
+                        <li>Overcoming Stage Fear</li>
+                        <li>Resume & Interview Mastery</li>
+                    </ul>
+                </div>
+                <div class="program-card fade-in">
+                    <h3>IELTS Preparation (Coming Soon)</h3>
+                    <ul>
+                        <li>Grammar & Vocabulary</li>
+                        <li>Speaking, Listening, Reading, Writing Practice</li>
+                        <li>Mock Tests & Feedback</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <p style="text-align:center; font-weight:bold">© 2025 LeadPath Academy. All rights reserved.</p>
+    <section class="founder">
+        <div class="container">
+            <div class="founder-content fade-in">
+                <h2 class="section-title">Meet the Founder</h2>
+                <div class="founder-name">Divyabharathi</div>
+                <p>Divyabharathi is the founder of LeadPath Academy and an internationally certified soft skills trainer. She has empowered over 1000+ students to speak English with confidence, leading many to career success and personal growth.</p>
+                <br>
+                <p>Recognized by Hindustan Times as one of the Top 10 Women Influencers in 2023 and 2024, she brings passion, clarity, and proven methods to every learner.</p>
+                <br>
+                <p><strong>Her mission:</strong> To help people speak English clearly, confidently, and without fear.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2025 LeadPath Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
